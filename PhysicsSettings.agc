@@ -9,5 +9,6 @@ SetSpritePhysicsFriction(7,0)
 SetSpritePhysicsCanRotate(7,0)
 SetSpritePhysicsRestitution (7,0)
 SetSpritePhysicsMass(7,1)
+SetSpritePhysicsVelocity(7,700,GetSpritePhysicsVelocityY(7))
 
 return 

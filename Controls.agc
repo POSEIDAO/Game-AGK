@@ -58,42 +58,7 @@ UpdateControls:
 	endif
 		
 				
-	if GetRawKeyState(68) // CORRENDO TECLA D 
-		
-		
-		SetSpritePhysicsVelocity(7,500,0)
-		StepPhysics(1)
-		print("D pressionado")
-		if(correndo=0)
-			correndo=1
-		endif
-		
-	else
-		if GetRawKeyState(65) =0
-			correndo=0
-		endif
-		
-		
-	endif
 	
-	if GetRawKeyState(65) // CORRENDO TECLA A
-			
-			
-			SetSpritePhysicsVelocity(7,-500,0)
-			StepPhysics(1)
-			print("D pressionado")
-			if(correndo=0)
-				correndo=1
-			endif
-			
-			SetSpriteFlip(7,1,0)
-	else
-		SetSpriteFlip(7,0,0)
-		if GetRawKeyState(68) =0
-			correndo=0
-		endif
-		
-	endif
 	
 	
 	
@@ -102,11 +67,14 @@ UpdateControls:
 	
                 
 	if GetRawKeyPressed(32) // PULO ESPAÇO
-		spriteX = GetSpriteXByOffset(7)
-		spriteY= GetSpriteYByOffset(7)
-		SetSpritePhysicsImpulse(7,SpriteX,spriteY,GetSpritePhysicsVelocityX(7),-10000)
-		pulando =1
-		PlaySprite(7,10,0,4,7)
+		if(pulando<2)
+			spriteX = GetSpriteXByOffset(7)
+			spriteY= GetSpriteYByOffset(7)
+			SetSpritePhysicsImpulse(7,SpriteX,spriteY,GetSpritePhysicsVelocityX(7),GetSpritePhysicsVelocityY(7)-10000)
+			pulando =pulando+1
+			PlaySprite(7,10,0,4,7)
+		endif
+		
                                
 	else
 		

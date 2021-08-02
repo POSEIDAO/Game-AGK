@@ -49,6 +49,9 @@ gosub LoadSprites
 gosub PhysicsStart
 
 
+
+
+
 do
 	
 	print(puloForce)
@@ -62,21 +65,13 @@ loop
 
 UpdatePersonagem:
 
-	if pulando =0
-		if(correndo=1)
-			PlaySprite(7,10,1,8,15) 
-			correndo=2
-		endif
-		
-		if(correndo=0)
-			PlaySprite(7,10,1,0,3) 
-		endif
-	endif
-	
-	
-	
+	print(pulando)
+
 	if GetSpriteY(personagem)>=566
-		pulando=0
+		if pulando >0
+			PlaySprite(7,10,1,8,15)
+			pulando=0
+		endif
 			
 		
 	endif

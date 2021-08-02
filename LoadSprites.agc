@@ -86,7 +86,7 @@ SetSpritePhysicsOff(3)
 
 
 //animação parada
-PlaySprite(personagem,10,1,0,3) 
+PlaySprite(personagem,10,1,8,15) 
 
 
 
