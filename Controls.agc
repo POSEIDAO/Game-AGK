@@ -68,9 +68,10 @@ UpdateControls:
                 
 	if GetRawKeyPressed(32) // PULO ESPAÇO
 		if(pulando<2)
-			spriteX = GetSpriteXByOffset(7)
-			spriteY= GetSpriteYByOffset(7)
-			SetSpritePhysicsImpulse(7,SpriteX,spriteY,GetSpritePhysicsVelocityX(7),GetSpritePhysicsVelocityY(7)-10000)
+			spriteX = GetWorldXFromSprite(7,0,0)
+			spriteY= GetWorldYFromSprite(7,0,0)
+			SetSpritePhysicsImpulse(7,SpriteX,spriteY,GetSpritePhysicsVelocityX(7),GetSpritePhysicsVelocityY(7)-13000)
+			SetSpritePhysicsVelocity(7,700+8000,GetSpritePhysicsVelocityY(7))
 			pulando =pulando+1
 			PlaySprite(7,10,0,4,7)
 		endif

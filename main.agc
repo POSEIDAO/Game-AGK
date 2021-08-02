@@ -53,8 +53,9 @@ gosub PhysicsStart
 
 
 do
-	
-	print(puloForce)
+	SetViewOffset(GetSpriteX(7),0)
+
+	print(GetSpritePhysicsVelocityX(7))
 	gosub UpdatePersonagem
 	
 	gosub UpdateControls
@@ -65,9 +66,9 @@ loop
 
 UpdatePersonagem:
 
-	print(pulando)
 
-	if GetSpriteY(personagem)>=566
+
+	if GetSpriteCollision(7,4)
 		if pulando >0
 			PlaySprite(7,10,1,8,15)
 			pulando=0

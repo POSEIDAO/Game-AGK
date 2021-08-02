@@ -3,12 +3,16 @@ LoadSprites:
 LoadImage(1,"fundo2.png")
 LoadImage(2,"fundo1.png")
 LoadImage(3,"fundo.png")
+LoadImage(4,"base-fundo.png")
 CreateSprite(1,1)
 SetSpriteSize(1,1024,768)
 CreateSprite(2,2)
 SetSpriteSize(2,1024,768)
 CreateSprite(3,3)
 SetSpriteSize(3,1024,768)
+CreateSprite(4,4)
+SetSpriteSize(4,1024,10)
+SetSpritePosition(4,0,GetVirtualHeight()-10)
 
 //inimigo
 LoadImage(5,"enemy01.png")
@@ -78,6 +82,7 @@ SetSpritePhysicsOn(personagem,2)
 SetSpritePhysicsOff(1)
 SetSpritePhysicsOff(2)
 SetSpritePhysicsOff(3)
+SetSpritePhysicsOn(4,1)
 
 
 //ADICIONAR SHAPE BOXES
