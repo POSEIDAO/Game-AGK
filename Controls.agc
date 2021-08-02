@@ -2,6 +2,9 @@
 correndo=0
 
 
+pulando=0
+
+
 UpdateControls:
 
 //VELOCIDADE DE DESLOCAMENTO DA PERSONAGEM
@@ -98,11 +101,12 @@ UpdateControls:
 	
 	
                 
-	if GetRawKeyState(32) // PULO ESPAÇO
+	if GetRawKeyPressed(32) // PULO ESPAÇO
 		spriteX = GetSpriteXByOffset(7)
 		spriteY= GetSpriteYByOffset(7)
-		SetSpritePhysicsImpulse(7,SpriteX,spriteY,GetSpritePhysicsVelocityX(7),-100)
-					
+		SetSpritePhysicsImpulse(7,SpriteX,spriteY,GetSpritePhysicsVelocityX(7),-10000)
+		pulando =1
+		PlaySprite(7,10,0,4,7)
                                
 	else
 		
