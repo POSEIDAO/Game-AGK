@@ -66,6 +66,10 @@ UpdatePersonagem:
 		PlaySprite(7,10,1,8,15) 
 		correndo=2
 	endif
+	
+	if(correndo=0)
+		PlaySprite(7,10,1,0,3) 
+	endif
 
 	/*if GetSpriteY(personagem)>=566
 		print("detectando o chão")

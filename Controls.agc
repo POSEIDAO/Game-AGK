@@ -67,7 +67,8 @@ UpdateControls:
 			correndo=1
 		endif
 		
-		
+	else
+		correndo=0
 		
 	endif
 	
