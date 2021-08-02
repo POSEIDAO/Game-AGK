@@ -56,9 +56,7 @@ UpdateControls:
 		
 				
 	if GetRawKeyState(68) // CORRENDO TECLA D 
-		//Mostra a imagem de movimento e esconde a parada
-		//SetSpriteVisible(parada,0)
-		//SetSpriteVisible(correndo,1) 
+		
 		
 		SetSpritePhysicsVelocity(7,500,0)
 		StepPhysics(1)
@@ -68,7 +66,29 @@ UpdateControls:
 		endif
 		
 	else
-		correndo=0
+		if GetRawKeyState(65) =0
+			correndo=0
+		endif
+		
+		
+	endif
+	
+	if GetRawKeyState(65) // CORRENDO TECLA A
+			
+			
+			SetSpritePhysicsVelocity(7,-500,0)
+			StepPhysics(1)
+			print("D pressionado")
+			if(correndo=0)
+				correndo=1
+			endif
+			
+			SetSpriteFlip(7,1,0)
+	else
+		SetSpriteFlip(7,0,0)
+		if GetRawKeyState(68) =0
+			correndo=0
+		endif
 		
 	endif
 	
