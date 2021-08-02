@@ -1,0 +1,151 @@
+// Project: PROJETO2 
+// Created: 2021-06-20
+
+// show all errors
+SetErrorMode(2)
+
+// set window properties
+SetWindowTitle( "PROJETO002" )
+SetWindowSize( 1024, 768, 0 )
+SetWindowAllowResize( 1 ) // allow the user to resize the window
+
+// set display properties
+SetVirtualResolution( 1024, 768 ) // doesn't have to match the window
+SetOrientationAllowed( 1, 1, 1, 1 ) // allow both portrait and landscape on mobile devices
+SetSyncRate( 30, 0 ) // 30fps instead of 60 to save battery
+SetScissor( 0,0,0,0 ) // use the maximum available screen space, no black borders
+UseNewDefaultFonts( 1 ) // since version 2.0.22 we can use nicer default fonts
+
+//DEFINIÇÃO DAS CONSTANTES
+//Sprite parada 7
+//Sprite correndo 8
+//Sprite pulo 9
+//Sprite atirando 10
+
+#constant parada 7
+#constant correndo 8
+#constant pulando 9
+#constant atirando 10
+
+//background inicial
+LoadImage(4,"inicial.png")
+CreateSprite(4,4)
+SetSpriteSize(4,1024,768)
+
+//background sobreposto
+LoadImage(1,"fundo2.png")
+LoadImage(2,"fundo1.png")
+LoadImage(3,"fundo.png")
+
+//inimigo
+LoadImage(5,"enemy01.png")
+
+//animação parada
+LoadImage(parada,"PARADA.png")
+CreateSprite(parada,parada)
+SetSpriteSize(parada,213,201)
+SetSpriteAnimation(parada,71,67,4)
+SetSpritePosition(parada,1,510)
+
+//animação correndo
+LoadImage(correndo,"CORRENDO.png")
+CreateSprite(correndo,correndo)
+SetSpriteSize(correndo,213,201)
+SetSpritePosition(correndo,1,510)
+SetSpriteAnimation(correndo,71,67,8)
+
+//animação pulando
+LoadImage(pulando,"JUMP.png")
+CreateSprite(pulando,pulando)
+SetSpriteSize(pulando,213,201)
+SetSpritePosition(pulando,1,510)
+SetSpriteAnimation(pulando,71,67,4)
+
+//sprite atirando
+LoadImage(atirando,"shoot.png")
+//CreateSprite(atirando,atirando)
+//SetSpriteSize(atirando,213,201)
+
+direcao as integer
+movimento as integer
+
+//animação parada
+PlaySprite(parada)
+
+//Animação do movimento
+PlaySprite(correndo)
+
+//Animação do pulo
+PlaySprite(pulando)
+
+//button = 1
+//AddVirtualButton(button,30,30,30)
+//SetVirtualButtonAlpha(button,192)
+//SetVirtualButtonColor(button,255,0,0)
+//SetVirtualButtonText(button,"ATIRE")
+//SetVirtualButtonVisible(button,1)
+//SetVirtualButtonPosition(1,1000,700)
+
+do
+    if GetRawKeyPressed(13) // TECLA ENTER PARA INICIAR GAME
+		SetSpriteVisible(4,0) // ESCONDE TELA INICIAL
+		// CRIA AS CAMADAS DO FUNDO DO GAME
+		CreateSprite(1,1)
+		SetSpriteSize(1,1024,768)
+		CreateSprite(2,2)
+		SetSpriteSize(2,1024,768)
+		CreateSprite(3,3)
+		SetSpriteSize(3,1024,768)
+		
+		// CRIA ANIMAÇÃO INIMIGO
+		CreateSprite(5,5)
+		SetSpriteSize(5,64,64)
+		SetSpritePosition(5,700,600)
+		SetSpriteAnimation(5,32,32,10)
+		PlaySprite(5)
+	
+	endif
+				
+	if GetRawKeyState(68) // CORRENDO TECLA D 
+		//Mostra a imagem de movimento e esconde a parada
+		//1 mostra 0 esconde
+		SetSpriteVisible(parada,0)
+		SetSpriteVisible(correndo,1)
+                               
+		//Correndo PlaySprite( iSpriteIndex, fFps, iLoop, iFromFrame, iToFrame ) 
+		SetSpritePosition(correndo,(GetSpriteX(correndo)+4),510)
+                        
+	else 
+		//Esconde a imagem de movimento e mostra a imagem parada
+		//Reposiciona a imagem parada na coordenada da imagem em movimento
+		SetSpritePosition(parada,(GetSpriteX(correndo)),510)
+		SetSpriteVisible(correndo,0)
+		SetSpriteVisible(parada,1)
+		//if !GetSpriteVisible(parada)
+			//SetSpriteVisible(parada,1)
+		//endif
+                               
+	endif
+                
+	if GetRawKeyState(32) // Pulo ESPAÇO
+		//Mostra a imagem do pulo e esconde a parada
+		SetSpriteVisible(pulando,1)
+		SetSpriteVisible(parada,0)
+                               
+		//Correndo PlaySprite( iSpriteIndex, fFps, iLoop, iFromFrame, iToFrame ) 
+		SetSpritePosition(pulando,(GetSpriteX(correndo)),GetSpriteY(pulando)-2)
+                               
+		//1 mostra 0 esconde
+	else 
+		SetSpriteActive(parada,1)
+		//Esconde a imagem do pulo e mostra a imagem parada
+		//Reposiciona a imagem parada na coordenada da imagem em pulo
+		SetSpritePosition(parada,(GetSpriteX(correndo)),510)
+		SetSpriteVisible(pulando,0)
+                               
+	endif
+	
+                      
+    //Print( ScreenFPS() )
+    Sync()
+loop
