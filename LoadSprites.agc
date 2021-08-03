@@ -84,6 +84,7 @@ SetSpriteSize(personagem,213,201)
 
 //ADICIONAR FÍSICA
 SetSpritePhysicsOn(personagem,2)
+SetSpriteShapeBox(7,-60,-60,60,100,0)
 SetSpritePhysicsOff(1)
 
 SetSpritePhysicsOn(2,1)
