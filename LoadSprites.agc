@@ -1,18 +1,20 @@
 LoadSprites:
 	//background sobreposto
-LoadImage(1,"fundo2.png")
-LoadImage(2,"fundo1.png")
-LoadImage(3,"fundo.png")
-LoadImage(4,"base-fundo.png")
+LoadImage(1,"fundocompletointeiro.png")
+LoadImage(2,"base.rua.png")
+/*LoadImage(3,"fundo.png")
+LoadImage(4,"base-fundo.png")*/
 CreateSprite(1,1)
-SetSpriteSize(1,1024,768)
+SetSpriteSize(1,2432,768)
 CreateSprite(2,2)
-SetSpriteSize(2,1024,768)
+SetSpriteSize(2,2432,42)
+SetSpritePosition(2,0,GetVirtualHeight()-42)
+/*
 CreateSprite(3,3)
 SetSpriteSize(3,1024,768)
 CreateSprite(4,4)
 SetSpriteSize(4,1024,10)
-SetSpritePosition(4,0,GetVirtualHeight()-10)
+SetSpritePosition(4,0,GetVirtualHeight()-10)*/
 
 //inimigo
 LoadImage(5,"enemy01.png")
@@ -80,9 +82,11 @@ SetSpriteSize(personagem,213,201)
 //ADICIONAR FÍSICA
 SetSpritePhysicsOn(personagem,2)
 SetSpritePhysicsOff(1)
-SetSpritePhysicsOff(2)
+
+SetSpritePhysicsOn(2,1)
+/*
 SetSpritePhysicsOff(3)
-SetSpritePhysicsOn(4,1)
+SetSpritePhysicsOn(4,1)*/
 
 
 //ADICIONAR SHAPE BOXES

@@ -68,7 +68,7 @@ UpdatePersonagem:
 
 
 
-	if GetSpriteCollision(7,4)
+	/*if GetSpriteCollision(7,4)
 		if pulando >0
 			PlaySprite(7,10,1,8,15)
 			pulando=0
