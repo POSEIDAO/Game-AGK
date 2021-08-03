@@ -34,6 +34,7 @@ personagemPulando=0
 personagemCorrendo=2
 posicaoProximoInimigo=800
 idInimigo =1000
+pontuacao = 0
 
 
 //VARIÁVEIS DE CONTROLE
@@ -61,6 +62,8 @@ do
 	if GetSpritePhysicsVelocityX(7)<=0
 		print("Perdeu")
 	endif
+	print(pontuacao)
+	pontuacao=GetSpriteX(7)/1000
 	print(GetSpritePhysicsVelocityX(7))
 	gosub UpdatePersonagem
 	
