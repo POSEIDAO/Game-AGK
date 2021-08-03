@@ -17,20 +17,7 @@ UpdateControls:
 
 
 
-/*if (GetPointerPressed ( )= 1 ) //atirando
-		//SetSpriteVisible(parada,0)
-		//SetSpriteVisible(atirando,1)
-		
 
-
-	else
-		//Esconde a imagem atirando e mostra a imagem parada
-		//Reposiciona a imagem atirando na coordenada da imagem parada
-		//SetSpritePosition(atirando,(GetSpriteX(correndo)),510)
-		//SetSpriteVisible(atirando,0)
-		//SetSpriteVisible(parada,1)
-	
-	endif*/
 	
 	//if GetRawKeyState(65) // CORRER PARA TRÁS
 		//Mostra a imagem de movimento e esconde a parada

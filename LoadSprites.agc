@@ -1,9 +1,11 @@
 LoadSprites:
-	//background sobreposto
+
+//Variáveis de controle
+idTiro=200
+
+//background sobreposto
 LoadImage(1,"fundocompleto.png")
 LoadImage(2,"base.rua.png")
-/*LoadImage(3,"fundo.png")
-LoadImage(4,"base-fundo.png")*/
 CreateSprite(1,1)
 SetSpriteSize(1,2816,768)
 CreateSprite(2,2)
@@ -16,14 +18,6 @@ SetSpritePosition(1,0,0)
 SetSpritePosition(2,0,GetVirtualHeight()-42)
 SetSpritePosition(3,2816,0)
 SetSpritePosition(4,2816,GetVirtualHeight()-42)
-/*
-CreateSprite(3,3)
-SetSpriteSize(3,1024,768)
-CreateSprite(4,4)
-SetSpriteSize(4,1024,10)
-SetSpritePosition(4,0,GetVirtualHeight()-10)*/
-
-
 
 
 //CARREGA IMAGENS DA PERSONAGEM
@@ -46,6 +40,14 @@ LoadImage(112,"run/run-5.png")
 LoadImage(113,"run/run-6.png")
 LoadImage(114,"run/run-7.png")
 LoadImage(115,"run/run-8.png")
+
+
+
+
+//carrega as imagens dos inimigos
+LoadImage(116,"vehicles/v-police.png")
+
+
 
 
 //criando sprite do persongame
@@ -86,14 +88,6 @@ SetSpritePhysicsOff(1)
 
 SetSpritePhysicsOn(2,1)
 SetSpritePhysicsOn(4,1)
-/*
-SetSpritePhysicsOff(3)
-SetSpritePhysicsOn(4,1)*/
-
-
-//ADICIONAR SHAPE BOXES
-//AddSpriteShapeBox(personagem,-GetSpriteWidth(personagem)/2,-GetSpriteHeight(personagem)/2,GetSpriteWidth(personagem)/2,GetSpriteHeight(personagem)/2,0)
-//AddSpriteShapeCircle(7,0,0,GetSpriteHeight(7)/2)
 
 
 //animação parada
@@ -102,4 +96,10 @@ PlaySprite(personagem,10,1,8,15)
 
 
 
+
+
+
 return 
+
+
+

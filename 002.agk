@@ -44,12 +44,14 @@ FILE_0=main.agc;-1
 FILE_1=PhysicsSettings.agc;-1
 FILE_2=LoadSprites.agc;-1
 FILE_3=Controls.agc;-1
+FILE_4=ControladorInimigos.agc;-1
 
 [files]
-FILE_NAME_0=0;main.agc;990;0
-FILE_NAME_1=1;PhysicsSettings.agc;288;1
-FILE_NAME_2=0;LoadSprites.agc;2288;2
-FILE_NAME_3=0;Controls.agc;1650;3
+FILE_NAME_0=0;main.agc;750;0
+FILE_NAME_1=0;PhysicsSettings.agc;74;1
+FILE_NAME_2=0;LoadSprites.agc;1226;2
+FILE_NAME_3=0;Controls.agc;214;3
+FILE_NAME_4=1;ControladorInimigos.agc;0;4
 
 [project]
 description=

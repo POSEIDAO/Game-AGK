@@ -20,10 +20,10 @@ UseNewDefaultFonts( 1 ) // since version 2.0.22 we can use nicer default fonts
 #include "PhysicsSettings.agc"
 #include "LoadSprites.agc"
 #include "Controls.agc"
-
+#include "ControladorInimigos.agc"
 
 SetPhysicsDebugOn()
-
+	
 //DEFINIÇÃO DAS CONSTANTES
 
 #constant personagem 7
@@ -32,7 +32,8 @@ SetPhysicsDebugOn()
 //VARIÁVEIS
 personagemPulando=0
 personagemCorrendo=2
-
+posicaoProximoInimigo=800
+idInimigo =1000
 
 
 //VARIÁVEIS DE CONTROLE
@@ -57,12 +58,15 @@ gosub PhysicsStart
 
 do
 	SetViewOffset(GetSpriteX(7),0)
-
+	if GetSpritePhysicsVelocityX(7)<=0
+		print("Perdeu")
+	endif
 	print(GetSpritePhysicsVelocityX(7))
 	gosub UpdatePersonagem
 	
 	gosub UpdateControls
     gosub UpdateBackground
+    gosub UpdateInimigos
     //Print( ScreenFPS() )
     print(GetSpriteX(7))
     Sync()
@@ -71,15 +75,19 @@ loop
 UpdatePersonagem:
 
 
-
-	/*if GetSpriteCollision(7,4)
-		if pulando >0
-			PlaySprite(7,10,1,8,15)
-			pulando=0
+	for i=2 to 6
+		if(GetSpriteExists(i))
+			if(GetSpriteCollision(7,i))
+				if pulando >0
+					PlaySprite(7,10,1,8,15)
+					pulando=0
+				endif
+			endif
 		endif
-			
-		
-	endif
+		i=i+1
+	next i
+
+	
 
 	/*if GetSpriteY(personagem)>=566
 		print("detectando o chão")
