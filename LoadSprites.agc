@@ -1,14 +1,21 @@
 LoadSprites:
 	//background sobreposto
-LoadImage(1,"fundocompletointeiro.png")
+LoadImage(1,"fundocompleto.png")
 LoadImage(2,"base.rua.png")
 /*LoadImage(3,"fundo.png")
 LoadImage(4,"base-fundo.png")*/
 CreateSprite(1,1)
-SetSpriteSize(1,2432,768)
+SetSpriteSize(1,2816,768)
 CreateSprite(2,2)
-SetSpriteSize(2,2432,42)
+SetSpriteSize(2,2816,42)
+CreateSprite(3,1)
+SetSpriteSize(3,2816,768)
+CreateSprite(4,2)
+SetSpriteSize(4,2816,42)
+SetSpritePosition(1,0,0)
 SetSpritePosition(2,0,GetVirtualHeight()-42)
+SetSpritePosition(3,2816,0)
+SetSpritePosition(4,2816,GetVirtualHeight()-42)
 /*
 CreateSprite(3,3)
 SetSpriteSize(3,1024,768)
@@ -16,14 +23,7 @@ CreateSprite(4,4)
 SetSpriteSize(4,1024,10)
 SetSpritePosition(4,0,GetVirtualHeight()-10)*/
 
-//inimigo
-LoadImage(5,"enemy01.png")
-// CRIA ANIMAÇÃO INIMIGO
-CreateSprite(5,5)
-SetSpriteSize(5,64,64)
-SetSpritePosition(5,700,600)
-SetSpriteAnimation(5,32,32,10)
-PlaySprite(5)
+
 
 
 //CARREGA IMAGENS DA PERSONAGEM
@@ -49,7 +49,8 @@ LoadImage(115,"run/run-8.png")
 
 
 //criando sprite do persongame
-CreateSprite(personagem,100) //frame na posicão 0 criado
+CreateSprite(personagem,100) 
+SetSpriteDepth(7,0)
 
 
 //adicionar animações do personagem parado
@@ -84,6 +85,7 @@ SetSpritePhysicsOn(personagem,2)
 SetSpritePhysicsOff(1)
 
 SetSpritePhysicsOn(2,1)
+SetSpritePhysicsOn(4,1)
 /*
 SetSpritePhysicsOff(3)
 SetSpritePhysicsOn(4,1)*/

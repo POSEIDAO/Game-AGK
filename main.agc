@@ -37,6 +37,9 @@ personagemCorrendo=2
 
 //VARIÁVEIS DE CONTROLE
 puloForce = 30
+proximaTrocaDeBackground=2816
+proximoIdBackground=5
+proximoIdRua=6
 
 
 
@@ -59,8 +62,9 @@ do
 	gosub UpdatePersonagem
 	
 	gosub UpdateControls
-                      
+    gosub UpdateBackground
     //Print( ScreenFPS() )
+    print(GetSpriteX(7))
     Sync()
 loop
 
@@ -95,3 +99,52 @@ UpdatePersonagem:
 	
 	endif*/
 return
+
+
+UpdateBackground:
+
+	if(GetSpriteX(7)>=proximaTrocaDeBackground)
+		criarBackground(proximoIdBackground,proximoIdRua,proximaTrocaDeBackground+2816)
+		
+		
+		if proximoIdBackground =5
+			proximoIdBackground = 1
+			proximoIdRua =2
+		else 
+			if proximoIdBackground =3
+			proximoIdBackground = 5
+			proximoIdRua =6
+			else
+				if proximoIdBackground =1
+					proximoIdBackground = 3
+					proximoIdRua =4
+				endif
+			endif	
+		endif
+		
+		deletarBackground(proximoIdBackground,proximoIdRua)
+		proximaTrocaDeBackground=proximaTrocaDeBackground+2816
+	
+	endif
+	
+	
+	
+	
+return 
+
+function criarBackground(proximoIdBackground,proximoIdRua,positionX)
+	createSprite(proximoIdBackground,1)
+	CreateSprite(proximoIdRua,2)
+	SetSpriteSize(proximoIdBackground,2816,768)
+	SetSpriteSize(proximoIdRua,2816,42)
+	SetSpriteDepth(proximoIdBackground,1)
+	SetSpriteDepth(proximoIdRua,1)
+	SetSpritePosition(proximoIdBackground,positionX,0)
+	SetSpritePosition(proximoIdRua,positionX,GetVirtualHeight()-42)
+	SetSpritePhysicsOn(proximoIdRua,1)
+endfunction
+
+function deletarBackground(idBackground,idRua)
+	DeleteSprite(idBackground)
+	DeleteSprite(idRua)
+endfunction
