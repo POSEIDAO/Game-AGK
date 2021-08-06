@@ -104,3 +104,117 @@ return
 
 
 
+UpdatePersonagem:
+
+
+	for i=2 to 6
+		if(GetSpriteExists(i))
+			if(GetSpriteCollision(7,i))
+				if pulando >0
+					PlaySprite(7,10,1,8,15)
+					pulando=0
+				endif
+			endif
+		endif
+		i=i+1
+	next i
+
+	
+
+	/*if GetSpriteY(personagem)>=566
+		print("detectando o chão")
+		if personagemPulando>0
+			StopSprite(personagem)
+			PlaySprite(personagem,10,1,0,3) 
+				
+			personagemPulando=0
+		endif
+			
+		
+	endif
+	
+	if puloForce >0
+		SetSpritePhysicsVelocity(personagem,GetSpritePhysicsVelocityX(personagem),GetSpriteY(personagem)-puloForce*100)
+		puloForce = puloForce-1.6
+	
+	endif*/
+return
+
+
+UpdateBackground:
+
+	if(GetSpriteX(7)>=proximaTrocaDeBackground)
+		criarBackground(proximoIdBackground,proximoIdRua,proximaTrocaDeBackground+2816)
+		
+		
+		if proximoIdBackground =5
+			proximoIdBackground = 1
+			proximoIdRua =2
+		else 
+			if proximoIdBackground =3
+			proximoIdBackground = 5
+			proximoIdRua =6
+			else
+				if proximoIdBackground =1
+					proximoIdBackground = 3
+					proximoIdRua =4
+				endif
+			endif	
+		endif
+		
+		deletarBackground(proximoIdBackground,proximoIdRua)
+		proximaTrocaDeBackground=proximaTrocaDeBackground+2816
+	
+	endif
+	
+	
+	
+	
+return 
+
+function criarBackground(proximoIdBackground,proximoIdRua,positionX)
+	createSprite(proximoIdBackground,1)
+	CreateSprite(proximoIdRua,2)
+	SetSpriteSize(proximoIdBackground,2816,768)
+	SetSpriteSize(proximoIdRua,2816,42)
+	SetSpriteDepth(proximoIdBackground,1)
+	SetSpriteDepth(proximoIdRua,1)
+	SetSpritePosition(proximoIdBackground,positionX,0)
+	SetSpritePosition(proximoIdRua,positionX,GetVirtualHeight()-42)
+	SetSpritePhysicsOn(proximoIdRua,1)
+endfunction
+
+function deletarBackground(idBackground,idRua)
+	DeleteSprite(idBackground)
+	DeleteSprite(idRua)
+endfunction
+
+
+function gameOver()
+	for i=1 to 250
+		if(GetSpriteExists(i))
+			DeleteSprite(i)
+		endif
+		
+		if(GetImageExists(i))
+			DeleteImage(i)
+		endif
+	next i
+	
+	gosub gameOverScreen
+	
+endfunction
+
+gameOverScreen:
+	LoadImage(1,"telagameover.png")
+	CreateSprite(1,1)
+	SetSpriteSize(1,1024,768)
+	SetSpriteDepth(1,0)
+	SetViewOffset(0,0)
+	
+	do
+		print(ScreenFPS())
+		sync()
+	loop
+	
+return
