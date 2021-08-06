@@ -113,6 +113,7 @@ UpdatePersonagem:
 				if pulando >0
 					PlaySprite(7,10,1,8,15)
 					pulando=0
+					
 				endif
 			endif
 		endif

@@ -7,43 +7,7 @@ pulando=0
 
 UpdateControls:
 
-//VELOCIDADE DE DESLOCAMENTO DA PERSONAGEM
 
-
-
-
-
-
-
-
-
-
-	
-	//if GetRawKeyState(65) // CORRER PARA TRÁS
-		//Mostra a imagem de movimento e esconde a parada
-		//SetSpriteVisible(parada,0)
-		//SetSpriteVisible(correndo,1)
-		
-		//SetSpritePosition(correndo,(GetSpriteX(correndo)-2),510)
-	
-	//endif
-	
-		
-	if GetRawKeyState(17) // AGACHAR TECLA CTRL
-		//Mostra a imagem agachada e esconde a parada
-		//1 mostra 0 esconde
-		//SetSpriteVisible(parada,0)
-		//SetSpriteVisible(agachar,1)
-		
-	else
-		//Esconde a imagem de agachando e mostra a imagem parada
-		//Reposiciona a imagem agachada na coordenada da imagem parada
-	//	SetSpritePosition(agachar,(GetSpriteX(correndo)),510)
-		//SetSpriteVisible(agachar,0)
-		//SetSpriteVisible(parada,1)
-		
-	endif
-		
 				
 	
 	
@@ -61,6 +25,7 @@ UpdateControls:
 			SetSpritePhysicsVelocity(7,700+8000,GetSpritePhysicsVelocityY(7))
 			pulando =pulando+1
 			PlaySprite(7,10,0,4,7)
+			
 		endif
 		
                                

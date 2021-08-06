@@ -18,4 +18,5 @@ function criarInimigo(posicao,id)
 	SetSpritePhysicsOn(id,1)
 	SetSpriteSize(id,326,120)
 	SetSpriteDepth(id,0)
+	SetSpriteShapeBox(id,-125,-30,125,40,0)
 endfunction

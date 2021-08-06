@@ -24,7 +24,6 @@ UseNewDefaultFonts( 1 ) // since version 2.0.22 we can use nicer default fonts
 #include "ControladorInimigos.agc"
 #include "TelaInicio.agc"
 
-SetPhysicsDebugOn()
 	
 gosub StartMenu
 	

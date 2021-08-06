@@ -1,5 +1,5 @@
 StartMenu:
-	LoadImage(1,"inicial.png")
+	LoadImage(1,"inicial2.png")
 	createsprite(1,1)
 	SetSpriteSize(1,GetVirtualWidth(),GetVirtualHeight())
 	
