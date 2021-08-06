@@ -22,8 +22,11 @@ UseNewDefaultFonts( 1 ) // since version 2.0.22 we can use nicer default fonts
 #include "PhysicsSettings.agc"
 #include "Controls.agc"
 #include "ControladorInimigos.agc"
+#include "TelaInicio.agc"
 
 SetPhysicsDebugOn()
+	
+gosub StartMenu
 	
 //DEFINIÇÃO DAS CONSTANTES
 
