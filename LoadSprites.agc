@@ -96,8 +96,8 @@ PlaySprite(personagem,10,1,8,15)
 
 
 
-
-
+LoadMusicOGG(1,"musica1.ogg")
+PlayMusicOGG(1)
 
 
 return 
@@ -200,6 +200,9 @@ function gameOver()
 			DeleteImage(i)
 		endif
 	next i
+	
+	StopMusicOGG(1)
+	DeleteMusicOGG(1)
 	
 	gosub gameOverScreen
 	
